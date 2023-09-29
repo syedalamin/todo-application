@@ -8,10 +8,10 @@ import {
 } from "./actionsTypes";
 import { initialState } from "./initialState";
 
-const  nextTodoId=(todos) => {
+const nextTodoId = (todos) => {
   const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1);
   return maxId + 1;
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,7 +30,7 @@ const reducer = (state = initialState, action) => {
         }
         return {
           ...todo,
-          
+
           completed: !todo.completed,
         };
       });
@@ -62,9 +62,8 @@ const reducer = (state = initialState, action) => {
       return state.filter((todo) => !todo.completed);
 
     default:
-      break;
+      return state;
   }
 };
-
 
 export default reducer;
